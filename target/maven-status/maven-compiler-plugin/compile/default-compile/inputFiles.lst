@@ -1,5 +1,11 @@
 C:\Users\samue\OneDrive\Documentos\NetBeansProjects\DoctorTicke\src\main\java\com\dev\oralsin\doctorticket\DoctorTicket.java
 C:\Users\samue\OneDrive\Documentos\NetBeansProjects\DoctorTicke\src\main\java\com\dev\oralsin\doctorticket\forms\FormMain.java
 C:\Users\samue\OneDrive\Documentos\NetBeansProjects\DoctorTicke\src\main\java\com\dev\oralsin\doctorticket\forms\FormSubmit.java
+C:\Users\samue\OneDrive\Documentos\NetBeansProjects\DoctorTicke\src\main\java\com\dev\oralsin\doctorticket\services\Alteracao.java
+C:\Users\samue\OneDrive\Documentos\NetBeansProjects\DoctorTicke\src\main\java\com\dev\oralsin\doctorticket\services\AutDiretor.java
+C:\Users\samue\OneDrive\Documentos\NetBeansProjects\DoctorTicke\src\main\java\com\dev\oralsin\doctorticket\services\Cancelamento.java
 C:\Users\samue\OneDrive\Documentos\NetBeansProjects\DoctorTicke\src\main\java\com\dev\oralsin\doctorticket\services\DadosFranqueado.java
+C:\Users\samue\OneDrive\Documentos\NetBeansProjects\DoctorTicke\src\main\java\com\dev\oralsin\doctorticket\services\Email.java
+C:\Users\samue\OneDrive\Documentos\NetBeansProjects\DoctorTicke\src\main\java\com\dev\oralsin\doctorticket\services\ReversaoAlteracao.java
+C:\Users\samue\OneDrive\Documentos\NetBeansProjects\DoctorTicke\src\main\java\com\dev\oralsin\doctorticket\services\ReversaoFinalizado.java
 C:\Users\samue\OneDrive\Documentos\NetBeansProjects\DoctorTicke\src\main\java\com\dev\oralsin\doctorticket\services\TransferenciaPaciente.java

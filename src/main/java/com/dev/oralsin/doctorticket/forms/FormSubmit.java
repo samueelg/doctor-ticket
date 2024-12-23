@@ -4,7 +4,13 @@
  */
 package com.dev.oralsin.doctorticket.forms;
 
+import com.dev.oralsin.doctorticket.services.Alteracao;
+import com.dev.oralsin.doctorticket.services.AutDiretor;
+import com.dev.oralsin.doctorticket.services.Cancelamento;
 import com.dev.oralsin.doctorticket.services.DadosFranqueado;
+import com.dev.oralsin.doctorticket.services.Email;
+import com.dev.oralsin.doctorticket.services.ReversaoAlteracao;
+import com.dev.oralsin.doctorticket.services.ReversaoFinalizado;
 import com.dev.oralsin.doctorticket.services.TransferenciaPaciente;
 
 /**
@@ -22,6 +28,34 @@ public class FormSubmit extends javax.swing.JFrame {
                 
         if (dados instanceof TransferenciaPaciente) {
             jTextArea1.setText(((TransferenciaPaciente) dados).getMsg());
+        }
+        
+        switch(dados){
+            case TransferenciaPaciente tp -> {
+        // Lógica para TransferenciaPaciente
+        jTextArea1.setText(((TransferenciaPaciente) dados).getMsg());
+    }
+            case ReversaoFinalizado rev ->{
+        jTextArea1.setText(((ReversaoFinalizado) dados).getMsg());
+            }
+            case ReversaoAlteracao revAlt ->{
+        jTextArea1.setText(((ReversaoAlteracao) dados).getMsg());
+            }
+            case Cancelamento cancelamento ->{
+        jTextArea1.setText(((Cancelamento) dados).getMsg());
+            }
+            case Email email->{
+        jTextArea1.setText(((Email) dados).getMsg());
+            }
+            case AutDiretor aut ->{
+        jTextArea1.setText(((AutDiretor) dados).getMsg());
+            }
+            case Alteracao alt ->{
+        jTextArea1.setText(((Alteracao) dados).getMsg());
+            }
+            default ->{
+                System.out.println("Não");
+            }
         }
     }
 

@@ -4,7 +4,13 @@
  */
 package com.dev.oralsin.doctorticket.forms;
 
+import com.dev.oralsin.doctorticket.services.Alteracao;
+import com.dev.oralsin.doctorticket.services.AutDiretor;
+import com.dev.oralsin.doctorticket.services.Cancelamento;
 import com.dev.oralsin.doctorticket.services.DadosFranqueado;
+import com.dev.oralsin.doctorticket.services.Email;
+import com.dev.oralsin.doctorticket.services.ReversaoAlteracao;
+import com.dev.oralsin.doctorticket.services.ReversaoFinalizado;
 import com.dev.oralsin.doctorticket.services.TransferenciaPaciente;
 import javax.swing.JOptionPane;
 
@@ -233,27 +239,116 @@ public class FormMain extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonTransferenciaActionPerformed
 
     private void buttonCancelamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelamentoActionPerformed
-        // TODO add your handling code here:
+                //Botão para ir para a tela de Reversão de cancelamento
+        String nomeF = nomeFranqueadoInput.getText();
+        String unidade = unidadeInput.getText();
+        String nomeP = nomePacienteInput.getText();
+        
+            if (nomeF.isEmpty() || unidade.isEmpty() || nomeP.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos!", "Erro", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+        
+        Cancelamento cancelamento = new Cancelamento(nomeF,unidade,nomeP);
+        
+        FormSubmit form = new FormSubmit(cancelamento);
+        this.dispose();
+        form.setVisible(true);
+        form.setLocationRelativeTo(null);
+        form.setResizable(false);
+            
     }//GEN-LAST:event_buttonCancelamentoActionPerformed
 
     private void buttonFinalizadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFinalizadoActionPerformed
-        // TODO add your handling code here:
+                //Botão para ir para a tela de Transferencia
+        String nomeF = nomeFranqueadoInput.getText();
+        String unidade = unidadeInput.getText();
+        String nomeP = nomePacienteInput.getText();
+        
+            if (nomeF.isEmpty() || unidade.isEmpty() || nomeP.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos!", "Erro", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+        
+        ReversaoFinalizado finalizado = new ReversaoFinalizado(nomeF,unidade,nomeP);
+        
+        FormSubmit form = new FormSubmit(finalizado);
+        this.dispose();
+        form.setVisible(true);
+        form.setLocationRelativeTo(null);
+        form.setResizable(false);
+        
     }//GEN-LAST:event_buttonFinalizadoActionPerformed
 
     private void buttonAlteracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAlteracaoActionPerformed
-        // TODO add your handling code here:
+                        //Botão para ir para a tela de Transferencia
+        String nomeF = nomeFranqueadoInput.getText();
+        String unidade = unidadeInput.getText();
+        String nomeP = nomePacienteInput.getText();
+        
+            if (nomeF.isEmpty() || unidade.isEmpty() || nomeP.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos!", "Erro", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+        
+        Alteracao alteracao = new Alteracao(nomeF,unidade,nomeP);
+        
+        FormSubmit form = new FormSubmit(alteracao);
+        this.dispose();
+        form.setVisible(true);
+        form.setLocationRelativeTo(null);
+        form.setResizable(false);
+          
     }//GEN-LAST:event_buttonAlteracaoActionPerformed
 
     private void buttonRevAlteracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRevAlteracaoActionPerformed
-        // TODO add your handling code here:
+                        //Botão para ir para a tela de Transferencia
+        String nomeF = nomeFranqueadoInput.getText();
+        String unidade = unidadeInput.getText();
+        String nomeP = nomePacienteInput.getText();
+        
+            if (nomeF.isEmpty() || unidade.isEmpty() || nomeP.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos!", "Erro", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+        
+        ReversaoAlteracao revA = new ReversaoAlteracao(nomeF,unidade,nomeP);
+        
+        FormSubmit form = new FormSubmit(revA);
+        this.dispose();
+        form.setVisible(true);
+        form.setLocationRelativeTo(null);
+        form.setResizable(false);     
     }//GEN-LAST:event_buttonRevAlteracaoActionPerformed
 
     private void buttomEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttomEmailActionPerformed
-        // TODO add your handling code here:
+        String nomeF = nomeFranqueadoInput.getText();
+        String unidade = unidadeInput.getText();
+        String nomeP = nomePacienteInput.getText();
+        
+        Email email = new Email(nomeF,unidade,nomeP);
+        
+        FormSubmit form = new FormSubmit(email);
+        this.dispose();
+        form.setVisible(true);
+        form.setLocationRelativeTo(null);
+        form.setResizable(false);    
+        
     }//GEN-LAST:event_buttomEmailActionPerformed
 
     private void buttonAutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAutActionPerformed
-        // TODO add your handling code here:
+        String nomeF = nomeFranqueadoInput.getText();
+        String unidade = unidadeInput.getText();
+        String nomeP = nomePacienteInput.getText();
+        
+        AutDiretor diretor = new AutDiretor(nomeF,unidade,nomeP);
+        
+        FormSubmit form = new FormSubmit(diretor);
+        this.dispose();
+        form.setVisible(true);
+        form.setLocationRelativeTo(null);
+        form.setResizable(false);    
+        
     }//GEN-LAST:event_buttonAutActionPerformed
 
         private void abrirTela2(DadosFranqueado dados) {

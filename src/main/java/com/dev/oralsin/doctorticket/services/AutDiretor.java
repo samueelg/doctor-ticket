@@ -8,12 +8,13 @@ package com.dev.oralsin.doctorticket.services;
  *
  * @author samue
  */
-public class AutDiretor {
+public class AutDiretor extends DadosFranqueado{
         private String msg;
 
-    public AutDiretor(String msg) {
-        this.msg = msg;
+    public AutDiretor(String nome, String unidade, String msg) {
+        super(nome, unidade, msg);
     }
+
 
     public String getMsg() {
         return """

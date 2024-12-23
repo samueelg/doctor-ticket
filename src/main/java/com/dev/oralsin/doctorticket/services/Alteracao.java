@@ -26,18 +26,20 @@ public class Alteracao extends DadosFranqueado{
 
     @Override
     public String getMsg() {
-        return "Bom dia! \n"
-                + "\n"
-                + "Foi registrado a Solicitação por telefone ao SAF. \n"
-                + "\n"
-                + "Dúvida/Solicitação: Duvida sobre como realizar alteração de contrato.\n"
-                + "\n"
-                + "Orientação/Solução: Orientado via AnyDesk o passo a passo para realizar a alteração do contrato.\n"
-                + "\n"
-                + "Paciente: " + getNomePaciente() + "\n"
-                + "\n"
-                + "Solicitante: " + getNome() + "\n"
-                + "\n"
-                + "A sua avaliação é muito importante, se possível, avalie o meu atendimento através da mensagem desse ticket. Obrigado!\n";
+        return String.format("""
+               Bom dia!
+               
+               Foi registrado a Solicitação por telefone ao SAF.
+               
+               Dúvida/Solicitação: Duvida sobre como realizar alteração de contrato.
+               
+               Orientação/Solução: Orientado via AnyDesk o passo a passo para realizar a alteração do contrato.
+               
+               Paciente: %s
+               
+               Solicitante:  %s
+               
+               A sua avaliação é muito importante, se possível, avalie o meu atendimento através da mensagem desse ticket. Obrigado!
+               """,getNomePaciente(),getNome());
     }
 }

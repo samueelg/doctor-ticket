@@ -27,18 +27,20 @@ public class TransferenciaPaciente extends DadosFranqueado{
 
     @Override
     public String getMsg() {
-        return "Bom dia! \n"
-                + "\n"
-                + "Foi registrado a Solicitação por telefone ao SAF. \n"
-                + "\n"
-                + "Dúvida/Solicitação: Solicitação de transferência de paciente.\n"
-                + "\n"
-                + "Orientação/Solução: Paciente transferido conforme o solicitado.\n"
-                + "\n"
-                + "Paciente: " + getNomePaciente() + "\n"
-                + "\n"
-                + "Solicitante: " + getNome() + "\n"
-                + "\n"
-                + "A sua avaliação é muito importante, se possível, avalie o meu atendimento através da mensagem desse ticket. Obrigado!\n";
+        return String.format("""
+                Bom dia!
+                
+                Foi registrado a Solicitação por telefone ao SAF.
+                
+                Dúvida/Solicitação: Solicitação de transferência de paciente.\n
+                
+                Orientação/Solução: Paciente transferido conforme o solicitado.
+                
+                Paciente: %s
+                
+                Solicitante: %s
+
+                A sua avaliação é muito importante, se possível, avalie o meu atendimento através da mensagem desse ticket. Obrigado!
+                """,getNomePaciente(),getNome());
     }
 }

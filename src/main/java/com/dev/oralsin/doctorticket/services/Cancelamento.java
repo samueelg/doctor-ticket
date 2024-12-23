@@ -26,18 +26,20 @@ public class Cancelamento extends DadosFranqueado{
 
     @Override
     public String getMsg() {
-        return "Bom dia! \n"
-                + "\n"
-                + "Foi registrado a Solicitação por telefone ao SAF. \n"
-                + "\n"
-                + "Dúvida/Solicitação: Solicitação de reversão de cancelamento.\n"
-                + "\n"
-                + "Orientação/Solução: Cancelamento conforme o solicitado.\n"
-                + "\n"
-                + "Paciente: " + getNomePaciente() + "\n"
-                + "\n"
-                + "Solicitante: " + getNome() + "\n"
-                + "\n"
-                + "A sua avaliação é muito importante, se possível, avalie o meu atendimento através da mensagem desse ticket. Obrigado!\n";
+        return String.format("""
+               Bom dia! 
+               
+               Foi registrado a Solicita\u00e7\u00e3o por telefone ao SAF. 
+               
+               Dúvida/Solicitação: Solicitação de reverssão de cancelamento.
+               
+               Orientação/Solução: Cancelamento conforme o solicitado.
+               
+               Paciente: %s
+                
+               Solicitante: %s
+                
+               A sua avaliação é muito importante, se possível, avalie o meu atendimento através da mensagem desse ticket. Obrigado!
+               """,getNomePaciente(),getNome());
     }
 }
