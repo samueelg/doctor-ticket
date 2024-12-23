@@ -7,9 +7,11 @@ com\dev\oralsin\doctorticket\forms\FormMain$11.class
 com\dev\oralsin\doctorticket\services\TransferenciaPaciente.class
 com\dev\oralsin\doctorticket\forms\FormMain$3.class
 com\dev\oralsin\doctorticket\forms\FormMain$8.class
+com\dev\oralsin\doctorticket\forms\FormSubmit$3.class
 com\dev\oralsin\doctorticket\services\DadosFranqueado.class
 com\dev\oralsin\doctorticket\forms\FormMain$4.class
 com\dev\oralsin\doctorticket\forms\FormMain$9.class
+com\dev\oralsin\doctorticket\forms\FormSubmit$2.class
 com\dev\oralsin\doctorticket\forms\FormMain$2.class
 com\dev\oralsin\doctorticket\forms\FormMain$10.class
 com\dev\oralsin\doctorticket\forms\FormMain$5.class

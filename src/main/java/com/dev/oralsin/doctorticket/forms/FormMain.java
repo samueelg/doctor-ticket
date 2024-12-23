@@ -227,6 +227,9 @@ public class FormMain extends javax.swing.JFrame {
         FormSubmit form = new FormSubmit(tp);
         this.dispose();
         form.setVisible(true);
+        form.setLocationRelativeTo(null);
+        form.setResizable(false);
+        
     }//GEN-LAST:event_buttonTransferenciaActionPerformed
 
     private void buttonCancelamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelamentoActionPerformed
@@ -288,7 +291,11 @@ public class FormMain extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormMain().setVisible(true);
+                FormMain form = new FormMain();
+                form.setVisible(true);
+                form.setLocationRelativeTo(null);
+                form.setResizable(false);
+                
             }
         });
     }
