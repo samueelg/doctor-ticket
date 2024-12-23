@@ -27,7 +27,7 @@ public class Alteracao extends DadosFranqueado{
     @Override
     public String getMsg() {
         return String.format("""
-               Bom dia!
+               %s
                
                Foi registrado a Solicitação por telefone ao SAF.
                
@@ -40,6 +40,6 @@ public class Alteracao extends DadosFranqueado{
                Solicitante:  %s
                
                A sua avaliação é muito importante, se possível, avalie o meu atendimento através da mensagem desse ticket. Obrigado!
-               """,getNomePaciente(),getNome());
+               """,saudacao(),getNomePaciente(),getNome());
     }
 }

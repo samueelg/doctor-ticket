@@ -26,8 +26,9 @@ public class Cancelamento extends DadosFranqueado{
 
     @Override
     public String getMsg() {
-        return String.format("""
-               Bom dia! 
+        return String.format(
+               """
+               %s 
                
                Foi registrado a Solicita\u00e7\u00e3o por telefone ao SAF. 
                
@@ -40,6 +41,6 @@ public class Cancelamento extends DadosFranqueado{
                Solicitante: %s
                 
                A sua avaliação é muito importante, se possível, avalie o meu atendimento através da mensagem desse ticket. Obrigado!
-               """,getNomePaciente(),getNome());
+               """,saudacao(),getNomePaciente(),getNome());
     }
 }

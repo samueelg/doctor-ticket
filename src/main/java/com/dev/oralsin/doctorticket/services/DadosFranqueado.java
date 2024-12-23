@@ -4,6 +4,9 @@
  */
 package com.dev.oralsin.doctorticket.services;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 /**
  *
  * @author samue
@@ -26,6 +29,22 @@ public abstract class DadosFranqueado {
         this.unidade = unidade;
         this.nomeP = nomeP;
     }
+        
+        public String verificaTempo(LocalTime horario){
+        if (horario.isBefore(LocalTime.NOON)) {
+            return "Bom dia, tudo bem?";
+        } else if (horario.isBefore(LocalTime.of(19, 0))) {
+            return "Boa tarde, tudo bem?";
+        } else {
+            return "Boa noite, tudo bem?";
+        }
+    }
+                public String saudacao(){
+            LocalTime agora = LocalTime.now();
+            
+            return verificaTempo(agora);
+        }
+            
 
     public String getNome() {
         return nome;
