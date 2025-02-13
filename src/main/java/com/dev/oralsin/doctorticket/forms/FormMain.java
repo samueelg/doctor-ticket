@@ -12,6 +12,7 @@ import com.dev.oralsin.doctorticket.services.Email;
 import com.dev.oralsin.doctorticket.services.ReversaoAlteracao;
 import com.dev.oralsin.doctorticket.services.ReversaoFinalizado;
 import com.dev.oralsin.doctorticket.services.TransferenciaPaciente;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,6 +26,27 @@ public class FormMain extends javax.swing.JFrame {
      */
     public FormMain() {
         initComponents();
+                try {
+            // Caminho do Chrome
+            String chromePath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
+
+            // Parâmetros para abrir o Chrome com debugging ativado
+            String[] command = {
+                chromePath,
+                "--remote-debugging-port=9222",
+                "--user-data-dir=C:\\chrome-profile"
+            };
+
+            // Iniciar o processo do Chrome
+            ProcessBuilder processBuilder = new ProcessBuilder(command);
+            processBuilder.start();
+
+            System.out.println("Chrome iniciado com depuração!");
+
+        } catch (IOException e) {
+            System.out.println("Não foi possivel inicializar o navegador");
+        }
+
     }
     
 
