@@ -12,6 +12,10 @@ import com.dev.oralsin.doctorticket.services.Email;
 import com.dev.oralsin.doctorticket.services.ReversaoAlteracao;
 import com.dev.oralsin.doctorticket.services.ReversaoFinalizado;
 import com.dev.oralsin.doctorticket.services.TransferenciaPaciente;
+import java.util.Set;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 /**
  *
@@ -25,9 +29,11 @@ public class FormSubmit extends javax.swing.JFrame {
     public FormSubmit(DadosFranqueado dados) {
         initComponents();
         
+        System.setProperty("webdriver.chrome.driver", "src\\main\\java\\com\\dev\\oralsin\\doctorticket\\driver\\chromedriver.exe");
+       
                 
-        if (dados instanceof TransferenciaPaciente) {
-            jTextArea1.setText(((TransferenciaPaciente) dados).getMsg());
+        if (dados instanceof TransferenciaPaciente transferenciaPaciente) {
+            jTextArea1.setText(transferenciaPaciente.getMsg());
         }
         
         switch(dados){
@@ -147,7 +153,31 @@ public class FormSubmit extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarActionPerformed
-        // TODO add your handling code here:
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("debuggerAddress", "127.0.0.1:9222");   
+        WebDriver driver = new ChromeDriver(options);
+        
+        Set<String> guiasAbertas = driver.getWindowHandles();
+        
+        String movideskAba = null;
+        
+                // Percorre todas as abas para verificar se o Movidesk já está aberto
+        for (String aba : guiasAbertas) {
+            driver.switchTo().window(aba);
+            if (driver.getCurrentUrl().contains("https://oralsinf.movidesk.com/")) { 
+                movideskAba = aba;
+                break; // Para de procurar quando encontrar
+            }
+        }
+
+        // Se encontrou uma aba do Movidesk, alterna para ela
+        if (movideskAba != null) {
+            driver.switchTo().window(movideskAba);
+        } else {
+            // Se não encontrou, abre uma nova aba e acessa o site
+            driver.switchTo().newWindow(org.openqa.selenium.WindowType.TAB);
+            driver.get("https://youtube.com");
+        }
     }//GEN-LAST:event_enviarActionPerformed
 
     /**

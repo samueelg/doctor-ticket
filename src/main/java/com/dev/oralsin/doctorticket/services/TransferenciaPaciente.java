@@ -32,7 +32,7 @@ public class TransferenciaPaciente extends DadosFranqueado{
                 
                 Foi registrado a Solicitação por telefone ao SAF.
                 
-                Dúvida/Solicitação: Solicitação de transferência de paciente.\n
+                Dúvida/Solicitação: Solicitação de transferência de paciente.
                 
                 Orientação/Solução: Paciente transferido conforme o solicitado.
                 
