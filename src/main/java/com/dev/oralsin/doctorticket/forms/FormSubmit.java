@@ -4,22 +4,29 @@
  */
 package com.dev.oralsin.doctorticket.forms;
 
-import com.dev.oralsin.doctorticket.services.Alteracao;
-import com.dev.oralsin.doctorticket.services.AutDiretor;
-import com.dev.oralsin.doctorticket.services.Cancelamento;
-import com.dev.oralsin.doctorticket.services.DadosFranqueado;
-import com.dev.oralsin.doctorticket.services.Email;
-import com.dev.oralsin.doctorticket.services.ReversaoAlteracao;
-import com.dev.oralsin.doctorticket.services.ReversaoFinalizado;
-import com.dev.oralsin.doctorticket.services.TransferenciaPaciente;
+import com.dev.oralsin.doctorticket.models.Alteracao;
+import com.dev.oralsin.doctorticket.models.AutDiretor;
+import com.dev.oralsin.doctorticket.models.Cancelamento;
+import com.dev.oralsin.doctorticket.models.DadosFranqueado;
+import com.dev.oralsin.doctorticket.models.Email;
+import com.dev.oralsin.doctorticket.models.ReversaoAlteracao;
+import com.dev.oralsin.doctorticket.models.ReversaoFinalizado;
+import com.dev.oralsin.doctorticket.models.TransferenciaPaciente;
+import java.time.Duration;
 import java.util.Set;
+import static org.apache.commons.lang3.ObjectUtils.wait;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  *
- * @author samue
+ * @author samueelg
  */
 public class FormSubmit extends javax.swing.JFrame {
     /**
@@ -164,20 +171,56 @@ public class FormSubmit extends javax.swing.JFrame {
                 // Percorre todas as abas para verificar se o Movidesk já está aberto
         for (String aba : guiasAbertas) {
             driver.switchTo().window(aba);
-            if (driver.getCurrentUrl().contains("https://oralsinf.movidesk.com/")) { 
+            if (driver.getCurrentUrl().contains("https://oralsinf.movidesk.com/Ticket/Edit/125339")) { 
                 movideskAba = aba;
                 break; // Para de procurar quando encontrar
             }
         }
 
         // Se encontrou uma aba do Movidesk, alterna para ela
+        try{
         if (movideskAba != null) {
             driver.switchTo().window(movideskAba);
         } else {
             // Se não encontrou, abre uma nova aba e acessa o site
             driver.switchTo().newWindow(org.openqa.selenium.WindowType.TAB);
-            driver.get("https://youtube.com");
+            driver.get("https://oralsinf.movidesk.com/Ticket/Edit/125339");
         }
+            //Abre um novo ticket no movidesk
+            //Actions actions = new Actions(driver);
+            //actions.keyDown(Keys.ALT).sendKeys("t").keyUp(Keys.ALT).perform();
+            
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            
+            //Abre serviço
+            
+            WebElement seletorServico = wait.until(ExpectedConditions.elementToBeClickable(By.id("select2-chosen-31")));
+            seletorServico.click();
+            
+            WebElement opcService = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[contains(@class, 'select2-result')]//div[contains(normalize-space(), 'Recepção')]")));
+            opcService.click();
+            
+            WebElement seletorServicos = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"ticket-sidebar\"]/div[2]/div[7]/div/a")));
+            seletorServicos.click();
+            
+            WebElement seletorInput = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[18]/input")));
+            seletorInput.click();
+            seletorInput.sendKeys("Transferência", Keys.ENTER);
+            
+            WebElement opcServices = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[contains(@class, 'jqx-tree-item-li')]//div[contains(text(), 'Transferência de Paciente')]")));
+            opcServices.click();
+            
+            WebElement seletorUrgencia = wait.until(ExpectedConditions.elementToBeClickable(By.id("select2-chosen-17")));
+            seletorUrgencia.click();
+            
+            WebElement opcao = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[contains(@class, 'select2-result') and .//div[contains(normalize-space(), 'Solicitação de serviço')]]")));
+            opcao.click();     
+            
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
     }//GEN-LAST:event_enviarActionPerformed
 
     /**

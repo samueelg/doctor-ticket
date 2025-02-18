@@ -2,16 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.dev.oralsin.doctorticket.services;
+package com.dev.oralsin.doctorticket.models;
 
 /**
  *
- * @author samue
+ * @author samuel
  */
-public class Alteracao extends DadosFranqueado{
-        private String nomePaciente;
+public class Cancelamento extends DadosFranqueado{
+    private String nomePaciente;
     
-    public Alteracao(String nome, String unidade, String nomePaciente){
+    public Cancelamento(String nome, String unidade, String nomePaciente){
         super(nome, unidade,nomePaciente);
         this.nomePaciente = nomePaciente;
     }
@@ -26,19 +26,20 @@ public class Alteracao extends DadosFranqueado{
 
     @Override
     public String getMsg() {
-        return String.format("""
-               %s
+        return String.format(
+               """
+               %s 
                
-               Foi registrado a Solicitação por telefone ao SAF.
+               Foi registrado a Solicita\u00e7\u00e3o por telefone ao SAF. 
                
-               Dúvida/Solicitação: Duvida sobre como realizar alteração de contrato.
+               Dúvida/Solicitação: Solicitação de reverssão de cancelamento.
                
-               Orientação/Solução: Orientado via AnyDesk o passo a passo para realizar a alteração do contrato.
+               Orientação/Solução: Cancelamento conforme o solicitado.
                
                Paciente: %s
-               
-               Solicitante:  %s
-               
+                
+               Solicitante: %s
+                
                A sua avaliação é muito importante, se possível, avalie o meu atendimento através da mensagem desse ticket. Obrigado!
                """,saudacao(),getNomePaciente(),getNome());
     }
