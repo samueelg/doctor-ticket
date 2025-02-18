@@ -4,14 +4,14 @@
  */
 package com.dev.oralsin.doctorticket.forms;
 
-import com.dev.oralsin.doctorticket.services.Alteracao;
-import com.dev.oralsin.doctorticket.services.AutDiretor;
-import com.dev.oralsin.doctorticket.services.Cancelamento;
-import com.dev.oralsin.doctorticket.services.DadosFranqueado;
-import com.dev.oralsin.doctorticket.services.Email;
-import com.dev.oralsin.doctorticket.services.ReversaoAlteracao;
-import com.dev.oralsin.doctorticket.services.ReversaoFinalizado;
-import com.dev.oralsin.doctorticket.services.TransferenciaPaciente;
+import com.dev.oralsin.doctorticket.models.Alteracao;
+import com.dev.oralsin.doctorticket.models.AutDiretor;
+import com.dev.oralsin.doctorticket.models.Cancelamento;
+import com.dev.oralsin.doctorticket.models.DadosFranqueado;
+import com.dev.oralsin.doctorticket.models.Email;
+import com.dev.oralsin.doctorticket.models.ReversaoAlteracao;
+import com.dev.oralsin.doctorticket.models.ReversaoFinalizado;
+import com.dev.oralsin.doctorticket.models.TransferenciaPaciente;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 

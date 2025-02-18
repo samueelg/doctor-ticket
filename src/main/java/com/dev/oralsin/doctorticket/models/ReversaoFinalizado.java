@@ -2,16 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.dev.oralsin.doctorticket.services;
+package com.dev.oralsin.doctorticket.models;
 
 /**
  *
  * @author samue
  */
-public class ReversaoAlteracao extends DadosFranqueado{
+public class ReversaoFinalizado extends DadosFranqueado {
         private String nomePaciente;
     
-    public ReversaoAlteracao(String nome, String unidade, String nomePaciente){
+    public ReversaoFinalizado(String nome, String unidade, String nomePaciente){
         super(nome, unidade,nomePaciente);
         this.nomePaciente = nomePaciente;
     }
@@ -31,10 +31,10 @@ public class ReversaoAlteracao extends DadosFranqueado{
                 %s
                 
                 Foi registrado a Solicitação por telefone ao SAF.
+               
+                Dúvida/Solicitação: Solicitação de reversão de paciente com status finalizado.
                 
-                Dúvida/Solicitação: Solicitação de reversão de contrato em processo de alteração.
-                
-                Orientação/Solução: Alteração revertida conforme o solicitado.
+                Orientação/Solução: Paciente conforme o solicitado.
                 
                 Paciente: %s
                 
