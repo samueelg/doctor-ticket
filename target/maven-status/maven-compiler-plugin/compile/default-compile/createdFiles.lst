@@ -22,6 +22,7 @@ com\dev\oralsin\doctorticket\models\ReversaoFinalizado.class
 com\dev\oralsin\doctorticket\models\Email.class
 com\dev\oralsin\doctorticket\models\AutDiretor.class
 com\dev\oralsin\doctorticket\forms\FormMain$4.class
+com\dev\oralsin\doctorticket\DoctorTicketApplication.class
 com\dev\oralsin\doctorticket\forms\FormMain$9.class
 com\dev\oralsin\doctorticket\forms\FormSubmit$2.class
 com\dev\oralsin\doctorticket\models\DadosFranqueado.class
