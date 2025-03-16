@@ -12,9 +12,9 @@ import com.dev.oralsin.doctorticket.models.Email;
 import com.dev.oralsin.doctorticket.models.ReversaoAlteracao;
 import com.dev.oralsin.doctorticket.models.ReversaoFinalizado;
 import com.dev.oralsin.doctorticket.models.TransferenciaPaciente;
+import jakarta.annotation.PostConstruct;
 import java.time.Duration;
 import java.util.Set;
-import static org.apache.commons.lang3.ObjectUtils.wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -23,6 +23,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.springframework.stereotype.Component;
 
 /**
  *
@@ -42,7 +43,7 @@ public class FormSubmit extends javax.swing.JFrame {
         if (dados instanceof TransferenciaPaciente transferenciaPaciente) {
             jTextArea1.setText(transferenciaPaciente.getMsg());
         }
-        
+        /*
         switch(dados){
             case TransferenciaPaciente tp -> {
         // Lógica para TransferenciaPaciente
@@ -70,6 +71,7 @@ public class FormSubmit extends javax.swing.JFrame {
                 System.out.println("Não");
             }
         }
+        */
     }
 
     private FormSubmit() {

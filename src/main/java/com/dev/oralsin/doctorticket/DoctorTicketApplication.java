@@ -1,16 +1,25 @@
 package com.dev.oralsin.doctorticket;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.dev.oralsin.doctorticket.forms.FormMain;
+import java.awt.EventQueue;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  *
  * @author samueelg
  */
 
-@SpringBootApplication
 public class DoctorTicketApplication {
     public static void main(String[] args){
-        SpringApplication.run(DoctorTicketApplication.class, args);
+        ConfigurableApplicationContext ctx = new SpringApplicationBuilder(FormMain.class)
+        .headless(false).run(args);
+    
+    EventQueue.invokeLater(() -> {
+        FormMain form = ctx.getBean(FormMain.class);
+        form.setVisible(true);
+        form.setLocationRelativeTo(null);
+        form.setResizable(false);
+    });
     }
 }
