@@ -12,7 +12,9 @@ import com.dev.oralsin.doctorticket.models.Email;
 import com.dev.oralsin.doctorticket.models.ReversaoAlteracao;
 import com.dev.oralsin.doctorticket.models.ReversaoFinalizado;
 import com.dev.oralsin.doctorticket.models.TransferenciaPaciente;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import javax.swing.JOptionPane;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -28,7 +30,31 @@ public class FormMain extends javax.swing.JFrame {
      */
     public FormMain() {
         initComponents();
-                try {
+        abreChrome();
+    }
+    
+    
+    public static boolean isChromeRunning(){
+        try{
+            Process process = Runtime.getRuntime().exec("tasklist");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line;
+            
+                        while ((line = reader.readLine()) != null) {
+                if (line.toLowerCase().contains("chrome.exe")) {
+                    return true; // Chrome encontrado
+                }
+            }
+            reader.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+    public void abreChrome(){
+        if(isChromeRunning() == false){
+                            try {
             // Caminho do Chrome
             String chromePath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
 
@@ -48,7 +74,9 @@ public class FormMain extends javax.swing.JFrame {
         } catch (IOException e) {
             System.out.println("Não foi possivel inicializar o navegador");
         }
-
+        }else{
+            System.out.println("Chrome já aberto");
+        }
     }
 
     /**
@@ -60,6 +88,8 @@ public class FormMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jSlider1 = new javax.swing.JSlider();
         title = new javax.swing.JLabel();
         unidadeInput = new javax.swing.JTextField();
         nomeFranqueadoInput = new javax.swing.JTextField();
@@ -73,7 +103,10 @@ public class FormMain extends javax.swing.JFrame {
         buttonAlteracao = new javax.swing.JButton();
         buttonRevAlteracao = new javax.swing.JButton();
         buttomEmail = new javax.swing.JButton();
+        jCheckBox1 = new javax.swing.JCheckBox();
         buttonAut = new javax.swing.JButton();
+
+        jPasswordField1.setText("jPasswordField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -146,6 +179,13 @@ public class FormMain extends javax.swing.JFrame {
             }
         });
 
+        jCheckBox1.setText("Concluir Ticket");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
         buttonAut.setText("Autorização do Diretor");
         buttonAut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,14 +223,20 @@ public class FormMain extends javax.swing.JFrame {
                                     .addComponent(buttonTransferencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(buttonAlteracao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(buttonAut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(buttonRevAlteracao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(buttonFinalizado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(buttonCancelamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(buttomEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(buttonRevAlteracao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(buttonFinalizado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(buttonCancelamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(buttomEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jCheckBox1)
+                                        .addGap(33, 33, 33)))))
                         .addGap(20, 20, 20))))
         );
         layout.setVerticalGroup(
@@ -221,7 +267,9 @@ public class FormMain extends javax.swing.JFrame {
                     .addComponent(buttonRevAlteracao, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttomEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonAut, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(buttonAut, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -374,6 +422,10 @@ public class FormMain extends javax.swing.JFrame {
         
     }//GEN-LAST:event_buttonAutActionPerformed
 
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
         private void abrirTela2(DadosFranqueado dados) {
         FormSubmit tela2 = new FormSubmit(dados);
         tela2.setVisible(true);
@@ -388,6 +440,9 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JButton buttonFinalizado;
     private javax.swing.JButton buttonRevAlteracao;
     private javax.swing.JButton buttonTransferencia;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JSlider jSlider1;
     private javax.swing.JLabel nomeFranqueado;
     private javax.swing.JTextField nomeFranqueadoInput;
     private javax.swing.JLabel nomePaciente;

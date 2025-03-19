@@ -4,7 +4,6 @@
  */
 package com.dev.oralsin.doctorticket.models;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
 
 /**

@@ -1,6 +1,7 @@
 com\dev\oralsin\doctorticket\forms\FormMain.class
 com\dev\oralsin\doctorticket\forms\FormMain$1.class
 com\dev\oralsin\doctorticket\utils\WaitUtils.class
+com\dev\oralsin\doctorticket\forms\FormMain$11.class
 com\dev\oralsin\doctorticket\forms\FormMain$3.class
 com\dev\oralsin\doctorticket\config\WebDriverConfig.class
 com\dev\oralsin\doctorticket\forms\FormMain$8.class
@@ -20,12 +21,10 @@ com\dev\oralsin\doctorticket\models\ReversaoAlteracao.class
 com\dev\oralsin\doctorticket\models\ReversaoFinalizado.class
 com\dev\oralsin\doctorticket\models\Email.class
 com\dev\oralsin\doctorticket\models\AutDiretor.class
-com\dev\oralsin\doctorticket\forms\FormTest$1.class
 com\dev\oralsin\doctorticket\forms\FormMain$4.class
 com\dev\oralsin\doctorticket\DoctorTicketApplication.class
 com\dev\oralsin\doctorticket\forms\FormMain$9.class
 com\dev\oralsin\doctorticket\forms\FormSubmit$2.class
 com\dev\oralsin\doctorticket\models\DadosFranqueado.class
-com\dev\oralsin\doctorticket\forms\FormTest.class
 com\dev\oralsin\doctorticket\forms\FormMain$6.class
 com\dev\oralsin\doctorticket\models\Alteracao.class

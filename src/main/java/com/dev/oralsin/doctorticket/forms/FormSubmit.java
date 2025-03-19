@@ -12,7 +12,6 @@ import com.dev.oralsin.doctorticket.models.Email;
 import com.dev.oralsin.doctorticket.models.ReversaoAlteracao;
 import com.dev.oralsin.doctorticket.models.ReversaoFinalizado;
 import com.dev.oralsin.doctorticket.models.TransferenciaPaciente;
-import jakarta.annotation.PostConstruct;
 import java.time.Duration;
 import java.util.Set;
 import org.openqa.selenium.By;
@@ -23,8 +22,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.springframework.stereotype.Component;
-
 /**
  *
  * @author samueelg
@@ -38,41 +35,26 @@ public class FormSubmit extends javax.swing.JFrame {
         initComponents();
         
         System.setProperty("webdriver.chrome.driver", "src\\main\\java\\com\\dev\\oralsin\\doctorticket\\driver\\chromedriver.exe");
-       
-                
-        if (dados instanceof TransferenciaPaciente transferenciaPaciente) {
-            jTextArea1.setText(transferenciaPaciente.getMsg());
+        
+        if (dados instanceof TransferenciaPaciente t) {
+            jTextArea1.setText(t.getMsg());
+        } else if (dados instanceof ReversaoFinalizado rev) {
+            jTextArea1.setText(rev.getMsg());
+        } else if (dados instanceof ReversaoAlteracao revAlt) {
+            jTextArea1.setText(revAlt.getMsg());
+        } else if (dados instanceof Cancelamento cancelamento) {
+            jTextArea1.setText(cancelamento.getMsg());
+        } else if (dados instanceof Email email) {
+            jTextArea1.setText(email.getMsg());
+        } else if (dados instanceof AutDiretor aut) {
+            jTextArea1.setText(aut.getMsg());
+        } else if (dados instanceof Alteracao alt) {
+            jTextArea1.setText(alt.getMsg());
+        } else {
+            System.out.println("Não");
         }
-        /*
-        switch(dados){
-            case TransferenciaPaciente tp -> {
-        // Lógica para TransferenciaPaciente
-        jTextArea1.setText(((TransferenciaPaciente) dados).getMsg());
     }
-            case ReversaoFinalizado rev ->{
-        jTextArea1.setText(((ReversaoFinalizado) dados).getMsg());
-            }
-            case ReversaoAlteracao revAlt ->{
-        jTextArea1.setText(((ReversaoAlteracao) dados).getMsg());
-            }
-            case Cancelamento cancelamento ->{
-        jTextArea1.setText(((Cancelamento) dados).getMsg());
-            }
-            case Email email->{
-        jTextArea1.setText(((Email) dados).getMsg());
-            }
-            case AutDiretor aut ->{
-        jTextArea1.setText(((AutDiretor) dados).getMsg());
-            }
-            case Alteracao alt ->{
-        jTextArea1.setText(((Alteracao) dados).getMsg());
-            }
-            default ->{
-                System.out.println("Não");
-            }
-        }
-        */
-    }
+
 
     private FormSubmit() {
         throw new UnsupportedOperationException("Not supported yet.");
