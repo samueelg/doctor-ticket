@@ -12,5 +12,4 @@ import com.dev.oralsin.doctorticket.utils.WebDriverUtils;
  * @author samuel-not
  */
 public class AlteracaoController {
-    WebDriverUtils driver = (WebDriverUtils) WebDriverUtils.getDriver();
 }

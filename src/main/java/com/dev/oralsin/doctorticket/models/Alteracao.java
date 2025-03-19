@@ -15,6 +15,10 @@ public class Alteracao extends DadosFranqueado{
         super(nome, unidade,nomePaciente);
         this.nomePaciente = nomePaciente;
     }
+    
+    public String getTitulo(){
+        return "Solicitação - SAF - Transferencia de Paciente" + getUnidade();
+    }
         
     public String getNomePaciente() {
         return nomePaciente;
